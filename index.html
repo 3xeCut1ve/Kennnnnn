@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Kennyron Vargas | Student Developer Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;800&family=JetBrains+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <nav>
+        <div class="brand">
+          <span class="logo mono">&lt;/&gt;</span><span>Kennyron Vargas</span>
+        </div>
+        <div class="links">
+          <a href="#about">About</a><a href="#skills">Skills</a
+          ><a href="#projects">Projects</a><a href="#contact">Contact</a>
+        </div>
+        <div class="navr">
+          <span class="pill mono"
+            ><span class="dot"></span>Year 3, Information Technology</span
+          >
+        </div>
+      </nav>
+    </div>
+
+    <main class="wrap">
+      <div class="left" id="about">
+        <span class="tag">Looking for my first internship</span>
+        <h1>Hi, I’m Kennyron. I’m learning to build things with code.</h1>
+        <div class="role mono">
+          <span>Now learning:</span><b id="typed"></b><span class="cur">|</span>
+        </div>
+        <p class="bio">
+          I’m a high school student at Pamantasan ng Lungsod ng Valenzuela.
+          Everything here comes from my coding classes and club projects: small
+          games, simple websites, and tools that solve everyday school problems.
+        </p>
+        <div class="skills" id="skills">
+          <p>What I’ve learned in class</p>
+          <div class="chips mono">
+            <span class="chip"
+              ><i style="background: #3358e8"></i>Python basics</span
+            >
+            <span class="chip"
+              ><i style="background: #ffd23f"></i>JavaScript</span
+            >
+            <span class="chip"
+              ><i style="background: #e0457b"></i>HTML &amp; CSS</span
+            >
+            <span class="chip"
+              ><i style="background: #1e9e5a"></i>Java (intro)</span
+            >
+            <span class="chip"
+              ><i style="background: #8a63d2"></i>Git &amp; GitHub</span
+            >
+          </div>
+        </div>
+        <div class="ctas">
+          <a href="#projects" class="btn main">See my projects</a>
+          <a href="#contact" class="btn">Get in touch</a>
+          <button class="btn" onclick="copyEmail()">Copy email</button>
+        </div>
+      </div>
+
+      <div class="win">
+        <div class="bar mono">
+          <div class="lights">
+            <span style="background: #ff6b6b"></span
+            ><span style="background: #ffd23f"></span
+            ><span style="background: #4ade95"></span>
+          </div>
+          <span>about_me.py</span>
+          <span>student@plv</span>
+        </div>
+        <div id="screen" class="mono">
+          <div class="d row">
+            Kennyron’s class terminal v1.0<br />Type
+            <span class="c">help</span> to see what you can ask me.
+          </div>
+          <div id="logs">
+            <div class="row">
+              <span class="g">student@plv:~$</span> whoami
+              <div class="out">
+                Kennyron Vargas, Information Technology student.
+              </div>
+            </div>
+            <div class="row">
+              <span class="g">student@plv:~$</span> cat progress.json
+              <div class="out c">
+                { "years_coding": 2, "school_projects": 8, "tests_passed": "all
+                of them (finally)" }
+              </div>
+            </div>
+          </div>
+          <form id="f" onsubmit="run(event)">
+            <span class="g">student@plv:~$</span
+            ><input
+              id="in"
+              type="text"
+              autocomplete="off"
+              spellcheck="false"
+              aria-label="Type a command"
+              placeholder="type a command"
+            />
+          </form>
+        </div>
+        <div class="foot mono">
+          <span>Try:</span>
+          <span
+            ><button onclick="quick('skills')">skills</button
+            ><button onclick="quick('projects')">projects</button
+            ><button onclick="quick('clear')">clear</button></span
+          >
+        </div>
+      </div>
+    </main>
+
+    <section class="wrap" id="projects">
+      <h2>Projects</h2>
+      <p class="sub">
+        Things I built in class. The grade calculator runs live right here.
+      </p>
+      <div class="pgrid">
+        <article class="card calc" aria-labelledby="gc-t">
+          <h3 id="gc-t">Grade Calculator</h3>
+          <p>
+            Python, Intro to CS. I rebuilt it in JavaScript so you can try it:
+            add each score with its weight.
+          </p>
+          <div class="gc-head mono">
+            <span>Score (%)</span><span>Weight (%)</span>
+          </div>
+          <div id="gc-rows"></div>
+          <button class="btn sm" type="button" onclick="addRow()">
+            Add assignment
+          </button>
+          <div id="gc-out" aria-live="polite"></div>
+        </article>
+        <div class="plist">
+          <article class="card">
+            <h3>Number Guessing Game</h3>
+            <div class="stack mono">Python</div>
+            <p>
+              Python, my first game. I rebuilt it in JavaScript so you can play:
+              guess the secret number from 1 to 100.
+            </p>
+            <form class="gg" id="gg-form">
+              <input
+                id="gg-in"
+                type="text"
+                inputmode="numeric"
+                autocomplete="off"
+                aria-label="Your guess (1 to 100)"
+                placeholder="1 to 100"
+              /><button class="btn sm main" id="gg-go" type="submit">
+                Guess</button
+              ><button class="btn sm" id="gg-new" type="button">
+                New game
+              </button>
+            </form>
+            <div id="gg-out" aria-live="polite"></div>
+            <details class="code">
+              <summary class="mono">View Python code</summary>
+              <pre class="mono"><code>import random
+
+def number_guessing_game():
+    """
+    An interactive number guessing simulation leveraging pseudo-random number generation,
+    comprehensive input validation, and iterative feedback loops.
+    """
+    print("=== Python Number Guessing Simulation ===")
+    lower_bound = 1
+    upper_bound = 100
+    secret_number = random.randint(lower_bound, upper_bound)
+    attempts = 0
+
+    print(f"I have conceptualized an integer between {lower_bound} and {upper_bound}. Can you ascertain its value?\n")
+
+    while True:
+        try:
+            user_input = input("Enter your integer hypothesis: ")
+            guess = int(user_input)
+            attempts += 1
+
+            if guess &lt; lower_bound or guess &gt; upper_bound:
+                print(f"Please restrict your input within the prescribed boundaries ({lower_bound} to {upper_bound}).\n")
+                continue
+
+            if guess &lt; secret_number:
+                print("Substantially low! Ascend your estimation.\n")
+            elif guess &gt; secret_number:
+                print("Exceedingly high! Descend your estimation.\n")
+            else:
+                print(f"Magnificent! You have successfully deciphered the number {secret_number} in {attempts} discrete iterations.")
+                break
+
+        except ValueError:
+            print("Invalid input detected. Kindly provide a valid integer representation.\n")
+
+if __name__ == "__main__":
+    number_guessing_game()</code></pre>
+            </details>
+          </article>
+          <article class="card">
+            <h3>Class Quiz App</h3>
+            <div class="stack mono">JavaScript</div>
+            <p>
+              JavaScript, my quiz project. Pick an answer for each question and
+              see your score at the end.
+            </p>
+            <div id="qz"></div>
+          </article>
+          <article class="card">
+            <h3>My First Website</h3>
+            <div class="stack mono">HTML &amp; CSS</div>
+            <p class="soon">Code coming soon</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap" id="contact">
+      <h2>Contact</h2>
+      <p class="sub">
+        I’m looking for my first internship. Email is the fastest way to reach
+        me.
+      </p>
+      <div class="ctas">
+        <a class="btn main" href="mailto:vargas.kennyron@gmail.com">Email me</a>
+        <button class="btn" type="button" onclick="copyEmail()">
+          Copy email
+        </button>
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrap">
+        <span class="mono">PLV, Class of 2026</span>
+        <span>
+          <a href="https://github.com" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener"
+            >LinkedIn</a
+          >
+          <a href="mailto:vargas.kennyron@gmail.com">Email</a>
+        </span>
+      </div>
+    </footer>
+
+    <div id="toast" role="status"><span id="tmsg"></span></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
